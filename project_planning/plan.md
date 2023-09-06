@@ -56,10 +56,11 @@
 - <ins>/categories:</ins> displays all category names; accessed from navbar dropdown menu 'show all' option
 - <ins>/articles/:category_name:</ins> displays all articles for a specified category
 - <ins>/authenticate:</ins> user login/ register page (register toggle changes form layout but same form (implement login only intially, and set up password later - just username)
+- <ins>/articles:</ins> although this endpoint on its own won't be used much on its own, its still how the route is going to be accessed, as we dont write the query inside the Route elements. If a search is made without specifying anything into the search, it will be just this (have a placeholder 'click to search all articles' in order to indicate this to the user).
 - <ins>/articles?search:</ins> when clicking on search, brings up articles matching search query (string); also option to click on categories and comments from there to search them instead (implement the latter later on)
 - <ins>/articles/comments?search:</ins> lists the most upvoted comments for articles matching the sort criteria above.
 - <ins>/categories?search:</ins> after searching articles, you can click here to search matching categories instead, which, after clicking on, you can access articles by category, like from the navbar - except you were able to search for the category you needed.
-- <ins>/articles/:article_id/comments:</ins> gives access to comments under a corresponding article, as well as the article itself.
+- <ins>/articles/:article_id:</ins> gives access to comments under a corresponding article, as well as the article itself.
 
 ## <ins>Data</ins>
 
