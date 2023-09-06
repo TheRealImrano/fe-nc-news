@@ -73,7 +73,7 @@
 
 ## <ins>Extras</ins>
 
-- implement optimistic rendering to give immediate feedback to upvotes, and to display user comments/ posts at top when theyve been posted
+- implement optimistic rendering to give immediate feedback to upvotes, and to display user comments/ posts at top when theyve been posted.
 - complete authentication functionality with password auth, which should be managed on the frontend.
 - extra UI features such as responsive touches and smooth loading screens to keep user experience maxed out an engaged.
 - Footer: displays pg. no, total, results. Gives buttons to navigate to next/ previous page (pagination).
