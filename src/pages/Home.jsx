@@ -1,12 +1,15 @@
+import { useState } from "react";
 import ArticleList from "../components/ArticleList";
 import HomeNav from "../components/HomeNav";
 
 const Home = () => {
+    const [sortAscending, setSortAscending] = useState(false);
+
     return (
         <>
-        <HomeNav />
+        <HomeNav sortAscending={sortAscending} setSortAscending={setSortAscending}/>
         <main className="component-outline">
-            <ArticleList />
+            <ArticleList sortAscending={sortAscending}/>
         </main>
         </>
     )

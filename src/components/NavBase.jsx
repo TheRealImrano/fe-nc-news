@@ -8,7 +8,6 @@ const NavBase = () => {
     useEffect(() => {
         fetchData('/api/topics')
           .then((data) => {
-            console.log(data.topics);
             setTopics(data.topics);
             setLoading(false);
           })
