@@ -78,3 +78,10 @@ button:focus-visible {
   padding: 10px;
   margin: 10px;
 }
+
+.article-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}

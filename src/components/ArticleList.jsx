@@ -2,12 +2,14 @@ import ArticleCard from "./ArticleCard";
 import { useEffect, useState } from 'react';
 import { fetchData } from '../utils/api';
 
-const ArticleList = () => {
+const ArticleList = (props) => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const urlEndpoint = `/api/articles${props.sortAscending ? '?order=asc' : ''}`
+
     useEffect(() => {
-        fetchData('/api/articles')
+        fetchData(urlEndpoint)
           .then((data) => {
             setArticles(data.articles); 
             setLoading(false);
@@ -16,14 +18,14 @@ const ArticleList = () => {
             console.error('Error fetching articles:', error);
             setLoading(false);
           });
-      }, []);
+      }, [urlEndpoint]);
 
       if (loading) {
         return <div>Loading...</div>;
       }
 
     return (
-        <div className="component-outline">
+        <section className="component-outline">
         <ul>
         {articles.map((article) => (
             <li key={`k${article.article_id}`} >
@@ -31,7 +33,7 @@ const ArticleList = () => {
             </li>
         ))}
         </ul>
-        </div>
+        </section>
     )
 }
 

@@ -14,9 +14,11 @@ const Dropdown = () => {
           {isOpen && (
             <div className="dropdown-content">
               <ul>
-                <li>Option 1</li>
-                <li>Option 2</li>
-                <li>Option 3</li>
+                <li>Username</li>
+                <li>Title</li>
+                <li>Topic</li>
+                <li>Date</li>
+                <li>Votes</li>
               </ul>
             </div>
           )}
