@@ -1,6 +1,6 @@
 import ArticleCard from "./ArticleCard";
 import { useEffect, useState } from 'react';
-import { fetchData } from '../utils/api';
+import { fetchAllArticles } from '../utils/api';
 
 const ArticleList = (props) => {
     const [articles, setArticles] = useState([]);
@@ -8,8 +8,10 @@ const ArticleList = (props) => {
 
     const urlEndpoint = `/api/articles${props.sortAscending ? '?order=asc' : ''}`
 
+  const order = props.sortAscending ? '?order=asc' : ''
+
     useEffect(() => {
-        fetchData(urlEndpoint)
+        fetchAllArticles(order)
           .then((data) => {
             setArticles(data.articles); 
             setLoading(false);

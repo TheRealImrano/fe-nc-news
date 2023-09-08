@@ -2,13 +2,34 @@ import axios from 'axios';
 
 const API_BASE_URL = 'https://nc-news-be-portfolio-aia-api.onrender.com'; // Replace with your API's base URL
 
-export const fetchData = (endpoint) => {
+export const fetchAllArticles = (order) => {
+  const urlEndpoint = `/api/articles${order ? '?order=asc' : ''}`
+
+
   return axios
-    .get(`${API_BASE_URL}${endpoint}`)
+    .get(`${API_BASE_URL}${urlEndpoint}`)
     .then((response) => response.data)
     .catch((error) => {
       throw error;
     });
 };
+
+export const fetchCategories = () => {
+  return axios
+    .get(`${API_BASE_URL}/api/topics`)
+    .then((response) => response.data)
+    .catch((error) => {
+      throw error;
+    });
+}
+
+export const fetchArticleByID = (id) => {
+  return axios
+    .get(`${API_BASE_URL}/api/articles/${id}`)
+    .then((response) => response.data)
+    .catch((error) => {
+      throw error;
+    });
+}
 
 

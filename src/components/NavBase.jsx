@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { fetchData } from "../utils/api";
+import { fetchCategories } from "../utils/api";
 
 const NavBase = () => {
     const [topics, setTopics] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetchData('/api/topics')
+        fetchCategories()
           .then((data) => {
             setTopics(data.topics);
             setLoading(false);
