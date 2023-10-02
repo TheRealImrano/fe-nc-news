@@ -32,4 +32,13 @@ export const fetchArticleByID = (id) => {
     });
 }
 
+export const fetchArticleComments = (id) => {
+  return axios
+    .get(`${API_BASE_URL}/api/articles/${id}/comments`)
+    .then((response) => response.data)
+    .catch((error) => {
+      throw error;
+    });
+}
+
 

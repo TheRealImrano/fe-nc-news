@@ -3,6 +3,7 @@ import { fetchArticleByID } from "../utils/api";
 import { useParams } from "react-router-dom";
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
+import CommentList from "../components/CommentList";
 
 const Article = () => {
     const [loading, setLoading] = useState(true);
@@ -43,9 +44,15 @@ const Article = () => {
                 {article.body}
             </p>
             <button> comment ({article.comment_count})</button>
+            <div>
             <button>upvote</button>
+            <span>{' '}{article.votes}{' '}</span>
             <button>downvote</button>
+            </div>
         </article>
+        <section>
+              <CommentList id={article_id} />
+        </section>
     </>
  )
 }
