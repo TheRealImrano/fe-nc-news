@@ -15,8 +15,11 @@ const ArticleCard = ({article}) => {
             <Link to={`/articles/${article.article_id}`}>
                 <button> comment ({article.comment_count})</button>
             </Link>
+            <div>
             <button>upvote</button>
+            <span>{article.votes}</span>
             <button>downvote</button>
+            </div>
             <Link to={`/articles/${article.article_id}`}>
                 <h4>{article.title}</h4>
             </Link>
