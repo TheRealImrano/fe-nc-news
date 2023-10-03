@@ -85,3 +85,35 @@ button:focus-visible {
   display: block;
   margin: 0 auto;
 }
+
+/* Style for the upvoted button */
+.upvoted-button {
+  background-color: #0079d3; /* Blue color for upvoted button */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  padding: 5px 10px; /* Adjust padding for button size */
+  font-weight: bold; /* Make the text bold */
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+  cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+.upvoted-button:hover {
+  background-color: #005aa3; /* Darker blue on hover */
+}
+
+/* Style for the downvoted button */
+.downvoted-button {
+  background-color: #ff4500; /* Red color for downvoted button */
+  color: white; /* Text color */
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  padding: 5px 10px; /* Adjust padding for button size */
+  font-weight: bold; /* Make the text bold */
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+  cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+.downvoted-button:hover {
+  background-color: #d13200; /* Darker red on hover */
+}
