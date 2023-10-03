@@ -51,4 +51,13 @@ export const updateArticleVotes = (id, votes) => {
   });
 }
 
+export const fetchAllUsers = () => {
+  return axios
+  .get(`${API_BASE_URL}/api/users`)
+  .then((response) => response.data)
+  .catch((error) => {
+    throw error;
+  });
+}
+
 

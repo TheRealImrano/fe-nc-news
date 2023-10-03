@@ -11,46 +11,46 @@ const Article = () => {
     const [article, setArticle] = useState({});
     const [voteStatus, setVoteStatus] = useState(null);
     const [voteCount, setVoteCount] = useState('loading...');
+    const [showCommentForm, setShowCommentForm] = useState(false);
     const {article_id} = useParams();
     const formattedDate = dayjs(article.created_at).locale('en').format('MMMM D, YYYY h:mm A');
 
     const handleUpvote = () => {
       if (voteStatus === 'upvoted') {
-        // User is undoing an upvote
         setVoteStatus(null);
-        setVoteCount((prevCount) => prevCount - 1); // Decrement voteCount locally
-        updateArticleVotes(article.article_id, -1); // Make the API call to update votes
+        setVoteCount((prevCount) => prevCount - 1); 
+        updateArticleVotes(article.article_id, -1); 
       } else if (voteStatus === null){
-        // User is upvoting
         setVoteStatus('upvoted');
-        setVoteCount((prevCount) => prevCount + 1); // Increment voteCount locally
-        updateArticleVotes(article.article_id, 1); // Make the API call to update votes
+        setVoteCount((prevCount) => prevCount + 1); 
+        updateArticleVotes(article.article_id, 1); 
       } else if (voteStatus === 'downvoted'){
-        // User is upvoting
         setVoteStatus('upvoted');
-        setVoteCount((prevCount) => prevCount + 2); // Increment voteCount locally
-        updateArticleVotes(article.article_id, 2); // Make the API call to update votes
+        setVoteCount((prevCount) => prevCount + 2); 
+        updateArticleVotes(article.article_id, 2); 
       }
     };
     
     const handleDownvote = () => {
       if (voteStatus === 'downvoted') {
-        // User is undoing a downvote
         setVoteStatus(null);
-        setVoteCount((prevCount) => prevCount + 1); // Increment voteCount locally
-        updateArticleVotes(article.article_id, 1); // Make the API call to update votes
+        setVoteCount((prevCount) => prevCount + 1); 
+        updateArticleVotes(article.article_id, 1); 
       } else if (voteStatus === null){
-        // User is downvoting
         setVoteStatus('downvoted');
-        setVoteCount((prevCount) => prevCount - 1); // Decrement voteCount locally
-        updateArticleVotes(article.article_id, -1); // Make the API call to update votes
+        setVoteCount((prevCount) => prevCount - 1); 
+        updateArticleVotes(article.article_id, -1); 
       } else if (voteStatus === 'upvoted'){
-        // User is downvoting
         setVoteStatus('downvoted');
-        setVoteCount((prevCount) => prevCount - 2); // Decrement voteCount locally
-        updateArticleVotes(article.article_id, -2); // Make the API call to update votes
+        setVoteCount((prevCount) => prevCount - 2); 
+        updateArticleVotes(article.article_id, -2); 
       }
     };
+
+    const toggleCommentForm = () => {
+      setShowCommentForm(!showCommentForm);
+    };
+    
 
     useEffect(() => {
       console.log(article_id)
@@ -86,7 +86,6 @@ const Article = () => {
             <p>
                 {article.body}
             </p>
-            <button> comment ({article.comment_count})</button>
             <div>
             <button
                 onClick={handleUpvote}
@@ -102,6 +101,7 @@ const Article = () => {
                 downvote
             </button>
             </div>
+            <button> comment ({article.comment_count})</button>
         </article>
         <section>
               <CommentList id={article_id} />

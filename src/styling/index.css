@@ -86,34 +86,45 @@ button:focus-visible {
   margin: 0 auto;
 }
 
-/* Style for the upvoted button */
+
 .upvoted-button {
-  background-color: #0079d3; /* Blue color for upvoted button */
-  color: white; /* Text color */
+  background-color: #0079d3; 
+  color: white; 
   border: none;
-  border-radius: 4px; /* Rounded corners */
-  padding: 5px 10px; /* Adjust padding for button size */
-  font-weight: bold; /* Make the text bold */
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
-  cursor: pointer; /* Show a pointer cursor on hover */
+  border-radius: 4px; 
+  padding: 5px 10px; 
+  font-weight: bold;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); 
+  cursor: pointer; 
 }
 
 .upvoted-button:hover {
-  background-color: #005aa3; /* Darker blue on hover */
+  background-color: #005aa3; 
 }
 
-/* Style for the downvoted button */
+
 .downvoted-button {
-  background-color: #ff4500; /* Red color for downvoted button */
-  color: white; /* Text color */
+  background-color: #ff4500; 
+  color: white; 
   border: none;
-  border-radius: 4px; /* Rounded corners */
-  padding: 5px 10px; /* Adjust padding for button size */
-  font-weight: bold; /* Make the text bold */
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
-  cursor: pointer; /* Show a pointer cursor on hover */
+  border-radius: 4px; 
+  padding: 5px 10px; 
+  font-weight: bold; 
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); 
+  cursor: pointer; 
 }
 
 .downvoted-button:hover {
-  background-color: #d13200; /* Darker red on hover */
+  background-color: #d13200; 
+}
+
+.user-name {
+  text-decoration: underline;
+  color: #0074d9; 
+
+  
+  &:hover {
+    color: #ff5733; 
+    cursor: pointer; 
+  }
 }

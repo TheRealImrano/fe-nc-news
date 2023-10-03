@@ -1,4 +1,5 @@
 import SearchBar from "./SearchBar";
+import {Link} from 'react-router-dom'
 
 const Header = () => {
     return (
@@ -6,7 +7,9 @@ const Header = () => {
             <img src="/src/assets/logos/nc-news-logos.jpeg" alt="Image displaying Logo of website" id='logo-main' />
             <h1>nc-news</h1>
             <h2>Home</h2>
-            <button>Login</button>
+            <Link to={`/auth`}>
+                <button>Login</button>
+            </Link>
             <SearchBar />
         </header>
     )
