@@ -41,4 +41,14 @@ export const fetchArticleComments = (id) => {
     });
 }
 
+export const updateArticleVotes = (id, votes) => {
+  const reqBody = { inc_votes : votes };
+  return axios
+  .patch(`${API_BASE_URL}/api/articles/${id}`, reqBody)
+  .then((response) => response.data)
+  .catch((error) => {
+    throw error;
+  });
+}
+
 
