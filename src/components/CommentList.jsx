@@ -7,11 +7,11 @@ const CommentList = ({id}) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(()=>{
-        console.log(id)
+        // console.log(id)
         fetchArticleComments(id)
         .then((data)=>{
             setArticleComments(data.comments);
-            console.log(data.comments);
+            // console.log(data.comments);
             setLoading(false);
         })
         .catch((error) => {

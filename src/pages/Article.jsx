@@ -55,12 +55,12 @@ const Article = () => {
     
 
     useEffect(() => {
-      console.log(article_id)
+      // console.log(article_id)
       fetchArticleByID(article_id)
         .then((data) => {
           setArticle(data.article); 
           setVoteCount(data.article.votes)
-          console.log(data.article.votes)
+          // console.log(data.article.votes)
           setLoading(false);
         })
         .catch((error) => {
