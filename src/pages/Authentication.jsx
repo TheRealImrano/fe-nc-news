@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react';
 import { fetchAllUsers } from '../utils/api';
 import UserCard from '../components/UserCard';
+import { useContext } from 'react';
+import { UserContext } from '../contexts/UserContext';
+import { PageContext } from '../contexts/PageContext';
 
 const Authentication = () => {
     const [loading, setLoading] = useState(true);
     const [usersList, setUsersList]  = useState([]);
     const [error, setError] = useState(null);
+    const { user, setUser } = useContext(UserContext);
+    const { setPage } = useContext(PageContext);
+    
 
     useEffect(() => {
+        setPage('Login Page')
         fetchAllUsers()
           .then((data) => {
             setUsersList(data.users); 
@@ -34,7 +41,7 @@ const Authentication = () => {
                 <ul>
                 {usersList.map((user) => (
                     <li key={`k${user.username}`} >
-                        <UserCard user={user} />
+                        <UserCard selectedUser={user} />
                     </li>
                 ))}
                 </ul>

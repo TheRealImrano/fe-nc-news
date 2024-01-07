@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { fetchArticleByID } from "../utils/api";
 import { useParams } from "react-router-dom";
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
 import CommentList from "../components/CommentList";
 import { updateArticleVotes } from '../utils/api';
+import { PageContext } from '../contexts/PageContext';
 
 const Article = () => {
     const [loading, setLoading] = useState(true);
@@ -14,6 +15,7 @@ const Article = () => {
     const [showCommentForm, setShowCommentForm] = useState(false);
     const {article_id} = useParams();
     const formattedDate = dayjs(article.created_at).locale('en').format('MMMM D, YYYY h:mm A');
+    const { setPage } = useContext(PageContext);
 
     const handleUpvote = () => {
       if (voteStatus === 'upvoted') {
@@ -66,6 +68,10 @@ const Article = () => {
           setLoading(false);
         });
     }, [article_id]);
+
+    useEffect(()=>{
+      setPage('Comments Section')
+    }, [])
 
     if (loading) {
       return <div>Loading...</div>;
