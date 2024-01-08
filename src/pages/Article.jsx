@@ -121,7 +121,7 @@ const Article = () => {
           {user.name && user.username && showCommentForm && (
             <CommentForm article_id={article_id} toggleCommentForm={toggleCommentForm} setReloadComments={setReloadComments}/>
           )}
-              <CommentList id={article_id} reloadComments={reloadComments}/>
+              <CommentList id={article_id} reloadComments={reloadComments} setReloadComments={setReloadComments}/>
         </section>
     </>
  )
