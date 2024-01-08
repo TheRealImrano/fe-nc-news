@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import dayjs from 'dayjs';
 import 'dayjs/locale/en';
 import {Link} from 'react-router-dom'
@@ -11,39 +11,33 @@ const ArticleCard = ({article}) => {
 
     const handleUpvote = () => {
         if (voteStatus === 'upvoted') {
-          // User is undoing an upvote
           setVoteStatus(null);
-          setVoteCount((prevCount) => prevCount - 1); // Decrement voteCount locally
-          updateArticleVotes(article.article_id, -1); // Make the API call to update votes
+          setVoteCount((prevCount) => prevCount - 1); 
+          updateArticleVotes(article.article_id, -1); 
         } else if (voteStatus === null){
-          // User is upvoting
           setVoteStatus('upvoted');
-          setVoteCount((prevCount) => prevCount + 1); // Increment voteCount locally
-          updateArticleVotes(article.article_id, 1); // Make the API call to update votes
+          setVoteCount((prevCount) => prevCount + 1);
+          updateArticleVotes(article.article_id, 1); 
         } else if (voteStatus === 'downvoted'){
-          // User is upvoting
           setVoteStatus('upvoted');
-          setVoteCount((prevCount) => prevCount + 2); // Increment voteCount locally
-          updateArticleVotes(article.article_id, 2); // Make the API call to update votes
+          setVoteCount((prevCount) => prevCount + 2); 
+          updateArticleVotes(article.article_id, 2); 
         }
       };
       
       const handleDownvote = () => {
         if (voteStatus === 'downvoted') {
-          // User is undoing a downvote
           setVoteStatus(null);
-          setVoteCount((prevCount) => prevCount + 1); // Increment voteCount locally
-          updateArticleVotes(article.article_id, 1); // Make the API call to update votes
+          setVoteCount((prevCount) => prevCount + 1); 
+          updateArticleVotes(article.article_id, 1); 
         } else if (voteStatus === null){
-          // User is downvoting
           setVoteStatus('downvoted');
-          setVoteCount((prevCount) => prevCount - 1); // Decrement voteCount locally
-          updateArticleVotes(article.article_id, -1); // Make the API call to update votes
+          setVoteCount((prevCount) => prevCount - 1); 
+          updateArticleVotes(article.article_id, -1); 
         } else if (voteStatus === 'upvoted'){
-          // User is downvoting
           setVoteStatus('downvoted');
-          setVoteCount((prevCount) => prevCount - 2); // Decrement voteCount locally
-          updateArticleVotes(article.article_id, -2); // Make the API call to update votes
+          setVoteCount((prevCount) => prevCount - 2); 
+          updateArticleVotes(article.article_id, -2);
         }
       };
 

@@ -1,14 +1,20 @@
 import ArticleCard from "./ArticleCard";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { fetchAllArticles } from '../utils/api';
+import { PageContext } from '../contexts/PageContext';
 
 const ArticleList = (props) => {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { setPage } = useContext(PageContext);
 
     const urlEndpoint = `/api/articles${props.sortAscending ? '?order=asc' : ''}`
 
-  const order = props.sortAscending ? '?order=asc' : ''
+    const order = props.sortAscending ? '?order=asc' : ''
+
+    useEffect(()=>{
+      setPage('Home Page')
+    }, [])
 
     useEffect(() => {
         fetchAllArticles(order)
