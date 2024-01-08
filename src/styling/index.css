@@ -128,3 +128,30 @@ button:focus-visible {
     cursor: pointer; 
   }
 }
+
+.delete-button {
+  background-color: darkred;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.delete-button:hover {
+  background-color: #bd0303;
+}
+
+.delete-button:hover .delete-text {
+  display: inline; /* Show the text on hover */
+}
+
+.delete-icon {
+  margin-right: 0.3rem;
+}
+
+.delete-text {
+  display: none; /* Initially hide the text */
+}
