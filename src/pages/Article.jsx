@@ -6,6 +6,8 @@ import 'dayjs/locale/en';
 import CommentList from "../components/CommentList";
 import { updateArticleVotes } from '../utils/api';
 import { PageContext } from '../contexts/PageContext';
+import CommentForm from "../components/CommentForm";
+import { UserContext } from '../contexts/UserContext';
 
 const Article = () => {
     const [loading, setLoading] = useState(true);
@@ -16,6 +18,8 @@ const Article = () => {
     const {article_id} = useParams();
     const formattedDate = dayjs(article.created_at).locale('en').format('MMMM D, YYYY h:mm A');
     const { setPage } = useContext(PageContext);
+    const { user } = useContext(UserContext);
+    const [reloadComments, setReloadComments] = useState(false);
 
     const handleUpvote = () => {
       if (voteStatus === 'upvoted') {
@@ -50,17 +54,19 @@ const Article = () => {
     };
 
     const toggleCommentForm = () => {
+      if (!user.username) {
+        alert('Please log in to post a comment.');
+        return;
+      }
       setShowCommentForm(!showCommentForm);
     };
     
 
     useEffect(() => {
-      // console.log(article_id)
       fetchArticleByID(article_id)
         .then((data) => {
           setArticle(data.article); 
           setVoteCount(data.article.votes)
-          // console.log(data.article.votes)
           setLoading(false);
         })
         .catch((error) => {
@@ -70,7 +76,7 @@ const Article = () => {
     }, [article_id]);
 
     useEffect(()=>{
-      setPage('Comments Section')
+      setPage('Comments Section');
     }, [])
 
     if (loading) {
@@ -107,10 +113,15 @@ const Article = () => {
                 downvote
             </button>
             </div>
-            <button> comment ({article.comment_count})</button>
+            <button onClick={toggleCommentForm}>
+              comment ({article.comment_count})
+            </button>
         </article>
         <section>
-              <CommentList id={article_id} />
+          {user.name && user.username && showCommentForm && (
+            <CommentForm article_id={article_id} toggleCommentForm={toggleCommentForm} setReloadComments={setReloadComments}/>
+          )}
+              <CommentList id={article_id} reloadComments={reloadComments}/>
         </section>
     </>
  )

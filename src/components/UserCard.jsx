@@ -1,15 +1,19 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../contexts/UserContext';
 
 const UserCard = ({selectedUser}) => {
-  const { user, setUser } = useContext(UserContext);
-
-  // useEffect(() => {
-  //   console.log(user);
-  // }, [user]);
+  const { setUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleUserSelect = () => {
-    setUser(selectedUser.name);
+    setUser((prevState) => ({
+      ...prevState,
+      name: selectedUser.name,
+      username: selectedUser.username
+    }));
+
+    navigate(-1);
   };
 
     return(

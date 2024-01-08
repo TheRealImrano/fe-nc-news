@@ -17,13 +17,13 @@ const Header = () => {
                 </div>
             </Link>
                 <h2>{page}</h2>
-            {user ? (
-                <h3>Logged in as: {user}!</h3>
+            {user.name ? (
+                <h3>Logged in as: {user.name}!</h3>
             ) : (
                 <h3>Hello there, please login!</h3>
             )}
-            {user ? (
-                <button onClick={() => setUser(null)}>Logout</button>
+            {user.name ? (
+                <button onClick={() => setUser(prevUser => ({ ...prevUser, username: null, name: null }))}>Logout</button>
             ) : (
                 <Link to={`/auth`}>
                     <button>Login</button>
