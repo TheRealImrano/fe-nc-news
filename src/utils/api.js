@@ -2,9 +2,8 @@ import axios from 'axios';
 
 const API_BASE_URL = 'https://nc-news-be-portfolio-aia-api.onrender.com';
 
-export const fetchAllArticles = (order) => {
-  const urlEndpoint = `/api/articles${order ? '?order=asc' : ''}`
-
+export const fetchAllArticles = ({order, topic}) => {
+  const urlEndpoint = `/api/articles?${order ? 'order=asc&' : ''}${topic ? `${topic}&` : ''}`
 
   return axios
     .get(`${API_BASE_URL}${urlEndpoint}`)

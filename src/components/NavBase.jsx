@@ -30,7 +30,7 @@ const NavBase = () => {
             <ul className="topics-list">
             {topics.map((topic) => (
                 <li key={`k${topic.slug}`} className="topic-item" data-description={topic.description}>
-                    {topic.slug}
+                    <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
                 </li>
             ))}
             </ul>
