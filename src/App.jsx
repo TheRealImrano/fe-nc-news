@@ -13,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/articles/:article_id" element={<Article />} />
         <Route path='/auth' element={<Authentication />} />
+        <Route path='/topics' element={<Authentication />} />
       </Routes>
     </>
   )
