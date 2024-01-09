@@ -84,7 +84,6 @@ export const postComment = async (article_id, username, body) => {
 export const deleteComment = async (commentId) => {
   try {
     const response = await axios.delete(`${API_BASE_URL}/api/comments/${commentId}`);
-    console.log('hi')
     return response.data;
   } catch (error) {
     console.error('Error deleting comment:', error);

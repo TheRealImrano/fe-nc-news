@@ -6,7 +6,6 @@ const HomeNav = (props) => {
 
     const handleSortChange = (ascending) => {
         props.setSortAscending(ascending)
-        console.log(props.sortAscending);
       };
     return (
         <section className="component-outline">

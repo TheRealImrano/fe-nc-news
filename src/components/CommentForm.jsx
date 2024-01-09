@@ -11,7 +11,6 @@ const CommentForm = ({ article_id, toggleCommentForm, setReloadComments }) => {
         event.preventDefault();
 
         if (!user.username) {
-            console.log('hi')
             alert('Please log in to post a comment.');
             return;
         }

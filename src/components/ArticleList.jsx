@@ -28,7 +28,7 @@ const ArticleList = (props) => {
             console.error('Error fetching articles:', error);
             setLoading(false);
           });
-      }, [urlEndpoint]);
+      }, [urlEndpoint, topic]);
 
       if (loading) {
         return <div>Loading...</div>;

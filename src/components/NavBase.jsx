@@ -11,7 +11,6 @@ const NavBase = () => {
           .then((data) => {
             setTopics(data.topics);
             setLoading(false);
-            console.log(data.topics);
           })
           .catch((error) => {
             console.error('Error fetching topics:', error);
