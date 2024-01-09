@@ -2,9 +2,8 @@ import axios from 'axios';
 
 const API_BASE_URL = 'https://nc-news-be-portfolio-aia-api.onrender.com';
 
-export const fetchAllArticles = (order) => {
-  const urlEndpoint = `/api/articles${order ? '?order=asc' : ''}`
-
+export const fetchAllArticles = ({order, topic}) => {
+  const urlEndpoint = `/api/articles?${order ? 'order=asc&' : ''}${topic ? `${topic}&` : ''}`
 
   return axios
     .get(`${API_BASE_URL}${urlEndpoint}`)
@@ -85,7 +84,6 @@ export const postComment = async (article_id, username, body) => {
 export const deleteComment = async (commentId) => {
   try {
     const response = await axios.delete(`${API_BASE_URL}/api/comments/${commentId}`);
-    console.log('hi')
     return response.data;
   } catch (error) {
     console.error('Error deleting comment:', error);

@@ -13,13 +13,11 @@ const CommentCard = ({comment, setReloadComments}) => {
           await deleteComment(comment.comment_id);
           setReloadComments((prev) => !prev);
           window.alert('Comment deleted successfully!');
-          onDelete(comment.comment_id); // Notify parent component to update state or handle deletion
+          onDelete(comment.comment_id);
         } catch (error) {
-          // Handle error
         }
     };
 
-    // Conditionally render delete button if the logged-in user is the author of the comment
     const renderDeleteButton = () => {
     if (user.username === comment.author) {
       return (
@@ -29,7 +27,7 @@ const CommentCard = ({comment, setReloadComments}) => {
         </span>
         <span className="delete-text">Delete</span>
       </button>
-      ); // You can add the delete functionality here
+      );
     }
     return null;
     };

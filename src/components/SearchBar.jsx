@@ -5,7 +5,6 @@ const SearchBar = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('Search query:', searchQuery);
         setSearchQuery('');
     }
 

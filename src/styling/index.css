@@ -145,7 +145,7 @@ button:focus-visible {
 }
 
 .delete-button:hover .delete-text {
-  display: inline; /* Show the text on hover */
+  display: inline;
 }
 
 .delete-icon {
@@ -153,5 +153,53 @@ button:focus-visible {
 }
 
 .delete-text {
-  display: none; /* Initially hide the text */
+  display: none;
+}
+
+.topics-list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.topic-item {
+  display: inline-block;
+  font-weight: bold; 
+  cursor: pointer;
+  position: relative;
+}
+
+.topics-list .topic-item {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+
+.topic-item:hover::before {
+  content: attr(data-description);
+  position: absolute;
+  /* top: -25px;
+  left: 50%; */
+  /* transform: translateX(-50%); */
+  background-color: rgba(235, 186, 186, 0.6);
+  /* color: #fff; */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  */
+  font-size: 12px;
+  z-index: 1;
+  white-space: nowrap;
+  top: 35px; 
+  left: 25px;
+}
+
+.topic-title {
+  font-size: 1.5em;
+  color: #333;
+  text-align: center;
+  text-decoration: underline;
 }

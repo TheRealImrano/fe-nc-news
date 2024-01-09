@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchCategories } from "../utils/api";
+import {Link} from 'react-router-dom'
 
 const NavBase = () => {
     const [topics, setTopics] = useState([]);
@@ -24,10 +25,11 @@ const NavBase = () => {
     return (
         <>
         <nav className="component-outline">
-            <ul>
+          <h2>Filter by topics:</h2>
+            <ul className="topics-list">
             {topics.map((topic) => (
-                <li key={`k${topic.slug}`} >
-                    {topic.slug}
+                <li key={`k${topic.slug}`} className="topic-item" data-description={topic.description}>
+                    <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
                 </li>
             ))}
             </ul>
