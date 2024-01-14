@@ -10,9 +10,9 @@ const HomeNav = (props) => {
     return (
         <section className="component-outline">
             <NavBase />
-            <Dropdown />
+            <Dropdown setSortBy={props.setSortBy} />
             <SortSlider onSortChange={handleSortChange} />
-            <button>Create Post!</button>
+            <button className="component-outline">Create Post!</button>
         </section>
     )
 }
