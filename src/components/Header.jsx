@@ -8,7 +8,7 @@ const Header = () => {
     const { user, setUser } = useContext(UserContext);
     const { page } = useContext(PageContext);
     const moduleUrl = new URL(import.meta.url);
-    const logoUrl = new URL('../assets/logos/nc-news-logos.jpeg', moduleUrl);
+    const logoUrl = new URL('../logo/nc-news-logos.jpeg', moduleUrl);
 
     return (
         <header className="component-outline">
