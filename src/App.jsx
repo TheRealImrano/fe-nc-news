@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Article from './pages/Article';
 import Authentication from './pages/Authentication';
 import Topics from './pages/Topics';
+import NotFound from './pages/NotFound';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/articles/:article_id" element={<Article />} />
         <Route path='/auth' element={<Authentication />} />
         <Route path='/topics/:slug' element={<Topics />} />
+        <Route path="*" element={<NotFound />} /> {/* 404 page */}
       </Routes>
     </>
   )
