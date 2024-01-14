@@ -16,7 +16,8 @@ const CommentList = ({id, reloadComments, setReloadComments, setErrorRes}) => {
         .catch((error) => {
             console.error('Error fetching comments:', Object.keys(error), error.response.data);
             setLoading(false);
-            setErrorRes(error.response.data)
+            setErrorRes(error.response.data);
+            throw error;
         });
     }, [id, reloadComments])
 
@@ -29,7 +30,7 @@ const CommentList = ({id, reloadComments, setReloadComments, setErrorRes}) => {
             <ul>
                 {articleComments.map((comment)=>(
                     <li key={`k${comment.comment_id}`}>
-                        <CommentCard comment={comment} setReloadComments={setReloadComments}/>
+                        <CommentCard comment={comment} setReloadComments={setReloadComments} setErrorRes={setErrorRes} />
                     </li>
                 ))}
             </ul>

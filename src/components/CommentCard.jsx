@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/en';
 import { deleteComment } from '../utils/api';
 
-const CommentCard = ({comment, setReloadComments}) => {
+const CommentCard = ({comment, setReloadComments, setErrorRes}) => {
     const formattedDate = dayjs(comment.created_at).locale('en').format('MMMM D, YYYY h:mm A');
     const { user } = useContext(UserContext);
 
@@ -15,6 +15,9 @@ const CommentCard = ({comment, setReloadComments}) => {
           window.alert('Comment deleted successfully!');
           onDelete(comment.comment_id);
         } catch (error) {
+          console.error('Error deleting comment:', error);
+          setErrorRes(error.response.data);
+          throw error;
         }
     };
 

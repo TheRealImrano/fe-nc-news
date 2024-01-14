@@ -28,7 +28,8 @@ const ArticleList = (props) => {
           .catch((error) => {
             console.error('Error fetching articles:', error);
             setLoading(false);
-            setErrorRes(error.response.data)
+            setErrorRes(error.response.data);
+            throw error;
           });
       }, [urlEndpoint, topic, sorting, order]);
 

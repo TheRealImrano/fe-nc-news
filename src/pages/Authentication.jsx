@@ -26,7 +26,8 @@ const Authentication = () => {
             console.error('Error fetching users:', error);
             setError(error);
             setLoading(false);
-            setErrorRes(error.response.data)
+            setErrorRes(error.response.data);
+            throw error;
           });
     }, []);
 

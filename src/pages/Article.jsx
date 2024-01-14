@@ -74,6 +74,8 @@ const Article = () => {
         .catch((error) => {
           console.error('Error fetching articles:', error);
           setLoading(false);
+          setErrorRes(error.response.data);
+          throw error;
         });
     }, [article_id]);
 

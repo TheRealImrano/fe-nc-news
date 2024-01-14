@@ -15,6 +15,7 @@ const NavBase = () => {
           .catch((error) => {
             console.error('Error fetching topics:', error);
             setLoading(false);
+            throw error;
           });
       }, []);
 
