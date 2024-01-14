@@ -8,6 +8,7 @@ import { updateArticleVotes } from '../utils/api';
 import { PageContext } from '../contexts/PageContext';
 import CommentForm from "../components/CommentForm";
 import { UserContext } from '../contexts/UserContext';
+import HttpError from "./HttpError";
 
 const Article = () => {
     const [loading, setLoading] = useState(true);
@@ -20,6 +21,7 @@ const Article = () => {
     const { setPage } = useContext(PageContext);
     const { user } = useContext(UserContext);
     const [reloadComments, setReloadComments] = useState(false);
+    const [errorRes, setErrorRes] = useState({});
 
     const handleUpvote = () => {
       if (voteStatus === 'upvoted') {
@@ -79,6 +81,10 @@ const Article = () => {
       setPage('Comments Section');
     }, [])
 
+    if (errorRes.code && errorRes.msg){
+      return <HttpError res={errorRes} />
+    }
+
     if (loading) {
       return <div>Loading...</div>;
     }
@@ -119,9 +125,9 @@ const Article = () => {
         </article>
         <section>
           {user.name && user.username && showCommentForm && (
-            <CommentForm article_id={article_id} toggleCommentForm={toggleCommentForm} setReloadComments={setReloadComments}/>
+            <CommentForm article_id={article_id} toggleCommentForm={toggleCommentForm} setReloadComments={setReloadComments} setErrorRes={setErrorRes} />
           )}
-              <CommentList id={article_id} reloadComments={reloadComments} setReloadComments={setReloadComments}/>
+              <CommentList id={article_id} reloadComments={reloadComments} setReloadComments={setReloadComments} setErrorRes={setErrorRes} />
         </section>
     </>
  )

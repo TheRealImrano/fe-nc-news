@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { fetchArticleComments } from "../utils/api";
 import CommentCard from "./CommentCard";
+import HttpError from "../pages/HttpError";
 
-const CommentList = ({id, reloadComments, setReloadComments}) => {
+const CommentList = ({id, reloadComments, setReloadComments, setErrorRes}) => {
     const [articleComments, setArticleComments] = useState([])
     const [loading, setLoading] = useState(true);
 
@@ -13,8 +14,9 @@ const CommentList = ({id, reloadComments, setReloadComments}) => {
             setLoading(false);
         })
         .catch((error) => {
-            console.error('Error fetching comments:', error);
+            console.error('Error fetching comments:', Object.keys(error), error.response.data);
             setLoading(false);
+            setErrorRes(error.response.data)
         });
     }, [id, reloadComments])
 

@@ -13,6 +13,7 @@ const ArticleList = (props) => {
     const order = props.sortAscending ? '?order=asc' : '';
     const topic = props.slug ? `topic=${props.slug}` : '';
     const sorting = props.sortBy ? `sort_by=${props.sortBy}` : '';
+    const {setErrorRes} = props;
 
     useEffect(()=>{
       setPage('Home Page')
@@ -27,6 +28,7 @@ const ArticleList = (props) => {
           .catch((error) => {
             console.error('Error fetching articles:', error);
             setLoading(false);
+            setErrorRes(error.response.data)
           });
       }, [urlEndpoint, topic, sorting, order]);
 
