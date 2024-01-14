@@ -7,12 +7,14 @@ import { PageContext } from '../contexts/PageContext';
 const Header = () => {
     const { user, setUser } = useContext(UserContext);
     const { page } = useContext(PageContext);
+    const moduleUrl = new URL(import.meta.url);
+    const logoUrl = new URL('../assets/logos/nc-news-logos.jpeg', moduleUrl);
 
     return (
         <header className="component-outline">
             <Link to={`/`}>
                 <div>
-                    <img src="/src/assets/logos/nc-news-logos.jpeg" alt="Image displaying Logo of website" id='logo-main' />
+                    <img src={logoUrl} alt="Image displaying Logo of website" id='logo-main' />
                     <h1>nc-news</h1>
                 </div>
             </Link>
