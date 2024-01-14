@@ -10,7 +10,7 @@ const SortSlider = ({ onSortChange }) => {
       };
 
     return (
-        <div className="slider">
+        <div className="slider component-outline">
           <label htmlFor="sortToggle">
             Sort: Ascending
           </label>

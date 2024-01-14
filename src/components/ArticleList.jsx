@@ -11,15 +11,15 @@ const ArticleList = (props) => {
     const urlEndpoint = `/api/articles${props.sortAscending ? '?order=asc' : ''}`
 
     const order = props.sortAscending ? '?order=asc' : '';
-
     const topic = props.slug ? `topic=${props.slug}` : '';
+    const sorting = props.sortBy ? `sort_by=${props.sortBy}` : '';
 
     useEffect(()=>{
       setPage('Home Page')
     }, [])
 
     useEffect(() => {
-        fetchAllArticles({order, topic})
+        fetchAllArticles({order, topic, sorting})
           .then((data) => {
             setArticles(data.articles); 
             setLoading(false);
@@ -28,7 +28,7 @@ const ArticleList = (props) => {
             console.error('Error fetching articles:', error);
             setLoading(false);
           });
-      }, [urlEndpoint, topic]);
+      }, [urlEndpoint, topic, sorting, order]);
 
       if (loading) {
         return <div>Loading...</div>;
