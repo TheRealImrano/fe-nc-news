@@ -3,7 +3,7 @@ import { UserContext } from "../contexts/UserContext";
 import { postComment } from "../utils/api";
 
 
-const CommentForm = ({ article_id, toggleCommentForm, setReloadComments }) => {
+const CommentForm = ({ article_id, toggleCommentForm, setReloadComments, setErrorRes }) => {
     const { user } = useContext(UserContext);
     const [commentBody, setCommentBody] = useState('');
 
@@ -27,6 +27,7 @@ const CommentForm = ({ article_id, toggleCommentForm, setReloadComments }) => {
           window.alert('Comment posted successfully!');
         } catch (error) {
           console.error('Error posting comment:', error);
+          setErrorRes(error.response.data);
           throw error;
         }
     };

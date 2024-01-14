@@ -24,21 +24,17 @@
   
   .dropdown-content li {
     padding: 10px;
-    margin: 0; /* Remove default margin */
-    border-bottom: 1px solid #ccc; /* Add a border between items */
+    margin: 0;
+    border-bottom: 1px solid #ccc;
   }
-  
-  /* .dropdown:hover .dropdown-content {
-    display: block;
-  } */
 
   #sort-button-home {
     background-color: rgb(53, 143, 247);
     color: white;
     border: none;
     cursor: pointer;
-    height: 35px; /* Adjust the height based on your preference */
-    width: 120px; /* Adjust the width based on your preference */
+    height: 35px;
+    width: 120px;
   }
 
   #sort-button-home:hover {
@@ -52,9 +48,8 @@
     font: inherit;
     cursor: pointer;
     color: #333;
-    width: 100%; /* Set the width to 100% */
-    box-sizing: border-box; /* Include padding and border in the width */
-    /* Add any additional styles you want for the dropdown items */
+    width: 100%;
+    box-sizing: border-box;
   }
 
   button.dropdown-items:hover{
@@ -62,9 +57,8 @@
   }
 
   #dropdown-selected-item {
-    background-color: #2af82a70; /* Green color for text highlight */
-    font-size: 1.5em; /* Adjust the font size based on your preference */
-    /* Add any additional styles you want for the selected item */
+    background-color: #2af82a70;
+    font-size: 1.5em;
   }
 
   #dropdown-selected-item:hover {

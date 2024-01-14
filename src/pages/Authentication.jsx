@@ -4,6 +4,7 @@ import UserCard from '../components/UserCard';
 import { useContext } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { PageContext } from '../contexts/PageContext';
+import HttpError from './HttpError';
 
 const Authentication = () => {
     const [loading, setLoading] = useState(true);
@@ -11,6 +12,7 @@ const Authentication = () => {
     const [error, setError] = useState(null);
     const { user, setUser } = useContext(UserContext);
     const { setPage } = useContext(PageContext);
+    const [errorRes, setErrorRes] = useState({});
     
 
     useEffect(() => {
@@ -24,16 +26,18 @@ const Authentication = () => {
             console.error('Error fetching users:', error);
             setError(error);
             setLoading(false);
+            setErrorRes(error.response.data);
+            throw error;
           });
-      }, []);
+    }, []);
+
+    if (errorRes.code && errorRes.msg){
+      return <HttpError res={errorRes} />
+    }
 
     if (loading) {
       return <div>Loading...</div>;
     };
-
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    }
 
     return(
         <>
