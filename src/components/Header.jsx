@@ -14,7 +14,7 @@ const Header = () => {
         <header className="component-outline">
             <Link to={`/`}>
                 <div>
-                    <img src={logoUrl} alt="Image displaying Logo of website" id='logo-main' />
+                    <img src="https://i.imgur.com/815snQg.jpg" alt="Image displaying Logo of website" id='logo-main' />
                     <h1>nc-news</h1>
                 </div>
             </Link>
